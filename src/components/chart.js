@@ -4,6 +4,9 @@ import {
   SparklinesLine,
   SparklinesReferenceLine
 } from 'react-sparklines';
+import _ from 'lodash';
+
+const average = data => _.round(_.mean(data));
 
 const Chart = ({ data, color }) => {
   return (
@@ -12,6 +15,7 @@ const Chart = ({ data, color }) => {
         <SparklinesLine color={color} />
         <SparklinesReferenceLine type="avg" />
       </Sparklines>
+      <div>{average(data)}</div>
     </div>
   );
 };
